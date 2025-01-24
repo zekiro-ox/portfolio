@@ -40,12 +40,12 @@ const Projects = () => {
   }, [projects]);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-100 via-white to-gray-200 py-10 px-5">
+    <div className="relative min-h-screen bg-[#12151c] py-10 px-5">
       {/* Background Shapes */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-blue-300 rounded-full opacity-30 transform -translate-x-16 -translate-y-16"></div>
-      <div className="absolute bottom-0 right-0 w-40 h-40 bg-yellow-400 rounded-full opacity-20 transform translate-x-20 translate-y-20"></div>
+      <div className="absolute top-0 left-0 w-32 h-32 bg-[#661b1c] rounded-full opacity-30 transform -translate-x-16 -translate-y-16"></div>
+      <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#1b222c] rounded-full opacity-20 transform translate-x-20 translate-y-20"></div>
 
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10 relative z-10">
+      <h1 className="text-4xl font-bold text-center text-white mb-10 relative z-10">
         My Projects
       </h1>
 
@@ -55,7 +55,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white shadow-md p-4 rounded-md border-l-4 border-blue-500"
+              className="bg-[#191d26] shadow-md p-4 rounded-md border-l-4 border-[#661b1c]"
             >
               {/* Slideshow for Project Images */}
               <div className="relative w-full h-48 mb-4">
@@ -65,15 +65,15 @@ const Projects = () => {
                   className="w-full h-full object-cover rounded-md"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800">
+              <h3 className="text-lg font-semibold text-white">
                 {project.title}
               </h3>
-              <p className="text-gray-600">{project.description}</p>
+              <p className="text-gray-400">{project.description}</p>
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-600 mt-3 inline-block"
+                className="text-[#661b1c] hover:text-[#531516] mt-3 inline-block"
               >
                 View Project
               </a>
@@ -83,8 +83,8 @@ const Projects = () => {
       </section>
 
       {/* Floating Decorative Elements */}
-      <div className="absolute top-1/3 left-1/4 w-5 h-5 bg-blue-500 rounded-full opacity-50 animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-8 h-8 bg-yellow-500 rounded-full opacity-50 animate-bounce"></div>
+      <div className="absolute top-1/3 left-1/4 w-5 h-5 bg-[#661b1c] rounded-full opacity-50 animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-8 h-8 bg-[#1b222c] rounded-full opacity-50 animate-bounce"></div>
     </div>
   );
 };

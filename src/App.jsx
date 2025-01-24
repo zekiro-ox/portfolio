@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Link,
   Element,
@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Projects from "./components/Project";
 import Contact from "./components/Contact";
+import Logo from "../src/assets/Logo.png";
 
 const App = () => {
   const sections = [
@@ -18,6 +19,8 @@ const App = () => {
     { id: "projects", name: "Projects", component: <Projects /> },
     { id: "contact", name: "Contact", component: <Contact /> },
   ];
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   React.useEffect(() => {
     Events.scrollEvent.register("begin", () => {
@@ -41,34 +44,59 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen font-sans">
+    <div className="min-h-screen font-sans ">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 w-full bg-gray-900 text-white shadow-md z-50">
-        <div className="container mx-auto flex justify-center space-x-6 py-4">
-          {sections.map((section) => (
-            <Link
-              key={section.id}
-              activeClass="text-yellow-400 border-b-2 border-yellow-400"
-              to={section.id}
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust offset if you have a fixed header
-              duration={500}
-              className="cursor-pointer hover:text-yellow-400 transition"
+      <nav className="fixed top-0 w-full bg-[#1b222c] text-white shadow-md z-50">
+        <div className="container mx-auto flex items-center justify-between py-4 px-5 md:px-10">
+          {/* Logo */}
+          <div className="text-xl font-bold">
+            <a href="#" onClick={scrollToTop} className="cursor-pointer">
+              <img src={Logo} alt="Logo" className="h-12 rounded-full" />
+            </a>
+          </div>
+
+          {/* Hamburger Menu for Mobile */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white focus:outline-none"
             >
-              {section.name}
-            </Link>
-          ))}
+              {isMenuOpen ? "✕" : "☰"}
+            </button>
+          </div>
+
+          {/* Links */}
+          <div
+            className={`flex flex-col md:flex-row md:items-center md:space-x-6 absolute md:static top-16 left-0 w-full bg-[#1b222c] md:bg-transparent transition-transform transform md:translate-x-0 md:justify-end ${
+              isMenuOpen ? "translate-x-0" : "-translate-x-full"
+            } md:translate-y-0`}
+          >
+            {sections.map((section) => (
+              <Link
+                key={section.id}
+                activeClass="border-b-2 border-white"
+                to={section.id}
+                spy={true}
+                smooth={true}
+                offset={-70} // Adjust offset if you have a fixed header
+                duration={500}
+                className="cursor-pointer text-white px-5 py-2 md:px-0 md:py-0 hover:text-gray-300 transition"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {section.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </nav>
 
       {/* Sections */}
-      <div className="sections pt-16">
+      <div className="sections">
         {sections.map((section) => (
           <Element
             key={section.id}
             name={section.id}
-            className="section min-h-screen bg-gray-100 py-10"
+            className="section min-h-screen bg-[#12151c] w-full"
           >
             {section.component}
           </Element>
@@ -78,7 +106,7 @@ const App = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-5 right-5 bg-yellow-400 text-white p-3 rounded-full shadow-md hover:bg-yellow-500 transition"
+        className="fixed bottom-5 right-5 bg-[#661b1c] text-white p-3 rounded-full shadow-md hover:bg-[#531516] transition"
       >
         &#8679; Top
       </button>

@@ -40,35 +40,32 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-100 via-white to-gray-200 flex flex-col items-center justify-center py-10 px-5">
+    <div className="relative min-h-screen bg-[#12151c] flex flex-col items-center justify-center py-10 px-5">
       {/* Background Shapes */}
-      <div className="absolute top-0 left-0 w-32 h-32 bg-blue-300 rounded-full opacity-30 transform -translate-x-16 -translate-y-16"></div>
-      <div className="absolute bottom-0 right-0 w-40 h-40 bg-yellow-400 rounded-full opacity-20 transform translate-x-20 translate-y-20"></div>
+      <div className="absolute top-0 left-0 w-32 h-32 bg-[#661b1c] rounded-full opacity-30 transform -translate-x-16 -translate-y-16"></div>
+      <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#1b222c] rounded-full opacity-20 transform translate-x-20 translate-y-20"></div>
 
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10 relative z-10">
+      <h1 className="text-4xl font-bold text-center text-white mb-10 relative z-10">
         Contact Me
       </h1>
 
       {/* Contact Details Section */}
       <section className="relative z-10 mb-10 text-center">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-          Contact Details
-        </h2>
         <div className="space-y-4">
-          <p className="text-gray-600">Email: {contactDetails.email}</p>
-          <p className="text-gray-600">Phone: {contactDetails.phone}</p>
-          <p className="text-gray-600">Address: {contactDetails.address}</p>
+          <p className="text-gray-400">Email: {contactDetails.email}</p>
+          <p className="text-gray-400">Phone: {contactDetails.phone}</p>
+          <p className="text-gray-400">Address: {contactDetails.address}</p>
         </div>
       </section>
 
       {/* Contact Form Section */}
       <section className="relative z-10 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4 text-center">
+        <h2 className="text-2xl font-semibold text-white mb-4 text-center">
           Send an Inquiry
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-gray-700">
+            <label htmlFor="name" className="block text-gray-400">
               Your Name
             </label>
             <input
@@ -77,14 +74,14 @@ const Contact = () => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-md shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-700 rounded-md shadow-sm text-gray-300 bg-[#191d26] focus:outline-none focus:ring-2 focus:ring-[#661b1c]"
               placeholder="Enter your name"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-gray-700">
+            <label htmlFor="email" className="block text-gray-400">
               Your Email
             </label>
             <input
@@ -93,14 +90,14 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-md shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-700 rounded-md shadow-sm text-gray-300 bg-[#191d26] focus:outline-none focus:ring-2 focus:ring-[#661b1c]"
               placeholder="Enter your email"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-gray-700">
+            <label htmlFor="message" className="block text-gray-400">
               Your Message
             </label>
             <textarea
@@ -108,7 +105,7 @@ const Contact = () => {
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-md shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-700 rounded-md shadow-sm text-gray-300 bg-[#191d26] focus:outline-none focus:ring-2 focus:ring-[#661b1c]"
               placeholder="Enter your message"
               rows="5"
               required
@@ -127,7 +124,7 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="w-full p-3 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 transition"
+            className="w-full p-3 bg-[#661b1c] text-white font-semibold rounded-md shadow-md hover:bg-[#531516] transition"
           >
             Send Message
           </button>
@@ -135,8 +132,8 @@ const Contact = () => {
       </section>
 
       {/* Floating Decorative Elements */}
-      <div className="absolute top-1/3 left-1/4 w-5 h-5 bg-blue-500 rounded-full opacity-50 animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-8 h-8 bg-yellow-500 rounded-full opacity-50 animate-bounce"></div>
+      <div className="absolute top-1/3 left-1/4 w-5 h-5 bg-[#661b1c] rounded-full opacity-50 animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-8 h-8 bg-[#1b222c] rounded-full opacity-50 animate-bounce"></div>
     </div>
   );
 };

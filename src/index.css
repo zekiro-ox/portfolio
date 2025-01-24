@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @import "fullpage.js/dist/fullpage.css";
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+  }
+  
